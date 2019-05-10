@@ -1,14 +1,14 @@
 #include<iostream>
 using namespace std;
-class bankers_alg
+class bankers
 {
     int p,r,seq[20],al[20][20],rn[20][20],avl[20],ed;
-    int com_pr();
+    int com();
 public:
     void getdata();
     void safe_seq();
 };
-void bankers_alg::getdata()
+void bankers::getdata()
 {
     cout<<"Enter number of processes : ";
     cin>>p;
@@ -30,7 +30,7 @@ void bankers_alg::getdata()
             cin>>rn[i][y];
     }
 }
-int bankers_alg::com_pr()
+int bankers::com()
 {
     int flag=0,fl=0;
     for(int i=0;i<p;i++)
@@ -59,13 +59,13 @@ int bankers_alg::com_pr()
     }
     return -1;
 }
-void bankers_alg::safe_seq()
+void bankers::safe_seq()
 {
     int temp,flag=0;
     ed=0;
     for(int i=0;i<p;i++)
     {
-        temp=com_pr();
+        temp=com();
         if(temp!=-1)
         {
             for(int y=0;y<r;y++)
@@ -88,7 +88,7 @@ void bankers_alg::safe_seq()
 }
 int main()
 {
-    bankers_alg banker;
+    bankers banker;
     banker.getdata();
     banker.safe_seq();
     return 0;
